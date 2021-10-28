@@ -15,11 +15,17 @@ public class Fisica {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		if (nome.trim().isEmpty()) {
+			throw new IllegalArgumentException("O Nome deve ser preenchido.");
+		}
+		this.nome = nome.trim();
 	}
 
 	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
+		if (sobrenome.trim().isEmpty()) {
+			throw new IllegalArgumentException("O Sobrenome deve ser preenchido.");
+		}
+		this.sobrenome = sobrenome.trim();
 	}
 
 	public String getCpf() {
@@ -27,7 +33,12 @@ public class Fisica {
 	}
 
 	public void setCpf(String cpf) {
-		this.cpf = cpf;
+		if (cpf.trim().isEmpty()) {
+			throw new IllegalArgumentException("O CPF deve ser preenchido.");
+		} else if (!cpf.trim().matches("^[0-9]{3}\\.[0-9]{3}\\.[0-9]{3}\\-[0-9]{2}$")) {
+			throw new IllegalArgumentException("O CPF deve ser válido.");
+		}
+		this.cpf = cpf.trim();
 	}
 
 	@Override

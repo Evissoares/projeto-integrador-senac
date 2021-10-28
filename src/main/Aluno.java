@@ -26,11 +26,17 @@ public class Aluno extends Fisica{
 	}
 
 	public void setAnoIngresso(Integer anoDoIngresso) {
+		if (anoDoIngresso < 1900 || anoDoIngresso > 2021) {
+			throw new IllegalArgumentException("O Ano do Ingresso deve ser válido.");
+		}
 		this.anoDoIngresso = anoDoIngresso;
 	}
 
 	public void setTurma(String turma) {
-		this.turma = turma;
+		if (turma.trim().isEmpty()) {
+			throw new IllegalArgumentException("A turma deve ser preenchida.");
+		}
+		this.turma = turma.trim();
 	}
 
 	public Integer getAnoIngresso() {
@@ -38,7 +44,12 @@ public class Aluno extends Fisica{
 	}
 
 	public void setMatricula(String matricula) {
-		this.matricula = matricula;
+		if (matricula.trim().isEmpty()) {
+			throw new IllegalArgumentException("A matrícula deve ser preenchida.");
+		} else if (!matricula.trim().matches("^[0-9]{3,9}$")) {
+			throw new IllegalArgumentException("A matrícula deve ser um campo numérico e com pelo menos 3 posições e menos de 9.");
+		}
+		this.matricula = matricula.trim();
 	}
 
 	@Override

@@ -11,7 +11,10 @@ public class Juridica {
 	}
 
 	public void setNomeFantasia(String nomeFantasia) {
-		this.nomeFantasia = nomeFantasia;
+		if (nomeFantasia.trim().isEmpty()) {
+			throw new IllegalArgumentException("O Nome Fantasia do fornecedor deve ser preenchido.");
+		}
+		this.nomeFantasia = nomeFantasia.trim();
 	}
 
 	public String getRazaoSocial() {
@@ -19,7 +22,10 @@ public class Juridica {
 	}
 
 	public void setRazaoSocial(String razaoSocial) {
-		this.razaoSocial = razaoSocial;
+		if (razaoSocial.trim().isEmpty()) {
+			throw new IllegalArgumentException("A Razão Social do fornecedor deve ser preenchido.");
+		}
+		this.razaoSocial = razaoSocial.trim();
 	}
 
 	public String getCnpj() {
@@ -27,7 +33,12 @@ public class Juridica {
 	}
 
 	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+		if (cnpj.trim().isEmpty()) {
+			throw new IllegalArgumentException("O CNPJ do fornecedor deve ser preenchido.");
+		} else if (!cnpj.trim().matches("^[0-9]{2}\\.[0-9]{3}\\.[0-9]{3}\\/[0-9]{4}\\-[0-9]{2}$")) {
+			throw new IllegalArgumentException("O CNPJ do fornecedor deve ser válido.");
+		}
+		this.cnpj = cnpj.trim();
 	}
 
 	@Override
