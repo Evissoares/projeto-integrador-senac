@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
+import java.util.Arrays;
 
 
 public class ManipularDados {
@@ -46,8 +46,8 @@ public class ManipularDados {
 
 			String linhas;
 			while((linhas = buffer.readLine()) != null){
-				
-				System.out.println(linhas);
+				String[] campos = linhas.split(";");
+				System.out.println(Arrays.toString(campos));
 			}
 
 		} catch (IOException e) {

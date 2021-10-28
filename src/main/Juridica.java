@@ -1,17 +1,25 @@
 package main;
 
-public class Juridica extends Pessoa{
+public class Juridica {
 	
-	private String inicioContrato;
+	private String nomeFantasia;
+	private String razaoSocial;
 	private String cnpj;
-	
-	
-	public String getInicioContrato() {
-		return inicioContrato;
+
+	public String getNomeFantasia() {
+		return nomeFantasia;
 	}
 
-	public void setInicioContrato(String inicioContrato) {
-		this.inicioContrato = inicioContrato;
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
+	}
+
+	public String getRazaoSocial() {
+		return razaoSocial;
+	}
+
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
 	}
 
 	public String getCnpj() {
@@ -24,7 +32,7 @@ public class Juridica extends Pessoa{
 
 	@Override
 	public String toString() {
-		return super.toString() + getCnpj() + ";" + getInicioContrato() + ";";
+		return getCnpj() + ";" + getNomeFantasia() + ";" + getRazaoSocial() + ";";
 	}
 	
 	

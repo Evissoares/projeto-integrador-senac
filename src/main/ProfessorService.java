@@ -6,9 +6,9 @@ public class ProfessorService {
 	
 	private final String CAMINHO = "PROFESSORES.txt"; 
 	
-	public void salvarProfessor(String nome, String cpf, String dataNasc, String disciplina) {
+	public void salvarProfessor(String codProfessor, String nome, String cpf, String sobrenome, String disciplina, Integer anoAdmissao) {
 		
-		Professor p = new Professor(nome, cpf, dataNasc, disciplina);
+		Professor p = new Professor(codProfessor, nome, cpf, sobrenome, disciplina, anoAdmissao);
 		
 		ManipularDados.salvar(CAMINHO, p.toString());
 		
