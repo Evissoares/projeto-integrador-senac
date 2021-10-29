@@ -190,17 +190,17 @@ public class Programa {
 		String anoAdmissao = "";
 		String disciplina = "";
 		System.out.println("Digite o codigo do professor:");
-        codProfessor = teclado.nextLine();
-        System.out.println("Digite o nome do professor:");
-        nome = teclado.nextLine();
-        System.out.println("Digite o sobrenome do professor:");
-        sobrenome = teclado.nextLine();
-        System.out.println("Digite o cpf do professor:");
-        cpf = teclado.nextLine();
-        System.out.println("Digite a disciplina do professor:");
-        disciplina = teclado.nextLine();
-        System.out.println("Digite o ano de admissao:");
-        anoAdmissao = teclado.nextLine();
+		codProfessor = teclado.nextLine();
+		System.out.println("Digite o nome do professor:");
+		nome = teclado.nextLine();
+		System.out.println("Digite o sobrenome do professor:");
+		sobrenome = teclado.nextLine();
+		System.out.println("Digite o cpf do professor:");
+		cpf = teclado.nextLine();
+		System.out.println("Digite a disciplina do professor:");
+		disciplina = teclado.nextLine();
+		System.out.println("Digite o ano de admissao:");
+		anoAdmissao = teclado.nextLine();
 		if (!anoAdmissao.matches("[0-9.]+")) {
 			anoAdmissao = "0";
 		}
