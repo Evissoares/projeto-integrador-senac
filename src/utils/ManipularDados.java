@@ -29,7 +29,7 @@ public class ManipularDados {
 			buffer.flush();
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("\n***************\nProblema na gravação do registro\n***************");
 		}
 
 	}
@@ -41,21 +41,15 @@ public class ManipularDados {
 		try (
 				FileReader fr = new FileReader(f); 
 				BufferedReader buffer = new BufferedReader(fr);
-
 		) {
-
 			String linhas;
 			while((linhas = buffer.readLine()) != null){
 				String[] campos = linhas.split(";");
 				System.out.println(Arrays.toString(campos));
 			}
-
-		} catch (IOException e) {
-			
-			e.printStackTrace();
+		} catch (IOException e) {	
+			System.out.println("\n***************\nProblema no acesso ao Arquivo\n***************");
 		}
-		
-		
 	}
 	
 	
