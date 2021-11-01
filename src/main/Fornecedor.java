@@ -1,5 +1,6 @@
 package main;
 
+import java.lang.invoke.StringConcatException;
 import java.text.SimpleDateFormat;
 
 public class Fornecedor extends Juridica{
@@ -14,15 +15,15 @@ public class Fornecedor extends Juridica{
 	public Fornecedor() { /* construtor */}
 	
 	public Fornecedor(String nomeFantasia, String razaoSocial, String cnpj, String codFornecedor, String segmento, String dataCadastro, String contato, String email, String telefone) {
+		this.setCodFornecedor(codFornecedor);
 		super.setNomeFantasia(nomeFantasia);
 		super.setRazaoSocial(razaoSocial);
 		super.setCnpj(cnpj);
 		this.setSegmento(segmento);
-		this.setContato(contato);
-		this.setEmail(email);
 		this.setDataCadastro(dataCadastro);
+		this.setContato(contato);
 		this.setTelefone(telefone);
-		this.setCodFornecedor(codFornecedor);
+		this.setEmail(email);
 	}
 
 	public String getCodFornecedor() {
@@ -45,6 +46,8 @@ public class Fornecedor extends Juridica{
 	public void setSegmento(String segmento) {
 		if (segmento.trim().isEmpty()) {
 			throw new IllegalArgumentException("O segmento do fornecedor deve ser preenchido.");
+		} else if ( super.checkCharacterSpecial(segmento.trim())) {
+			throw new IllegalArgumentException("O segmento do fornecedor não deve conter caracter especial.");
 		}
 		this.segmento = segmento.trim();
 	}
@@ -74,6 +77,8 @@ public class Fornecedor extends Juridica{
 	public void setContato(String contato) {
 		if (contato.trim().isEmpty()) {
 			throw new IllegalArgumentException("O contato do fornecedor deve ser preenchido.");
+		} else if ( super.checkCharacterSpecial(contato.trim())) {
+			throw new IllegalArgumentException("O contato do fornecedor não deve conter caracter especial.");
 		}
 		this.contato = contato.trim();
 	}

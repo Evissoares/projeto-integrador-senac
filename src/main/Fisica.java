@@ -17,6 +17,8 @@ public class Fisica {
 	public void setNome(String nome) {
 		if (nome.trim().isEmpty()) {
 			throw new IllegalArgumentException("O Nome deve ser preenchido.");
+		} else if ( checkCharacterSpecial(nome.trim())) {
+			throw new IllegalArgumentException("O Nome não pode conter caracteres especiais.");
 		}
 		this.nome = nome.trim();
 	}
@@ -24,6 +26,8 @@ public class Fisica {
 	public void setSobrenome(String sobrenome) {
 		if (sobrenome.trim().isEmpty()) {
 			throw new IllegalArgumentException("O Sobrenome deve ser preenchido.");
+		} else if ( checkCharacterSpecial(sobrenome.trim())) {
+			throw new IllegalArgumentException("O Sobreome não pode conter caracteres especiais.");
 		}
 		this.sobrenome = sobrenome.trim();
 	}
@@ -46,16 +50,14 @@ public class Fisica {
 		return getCpf() + ";" + getNome() + ";" + getSobrenome() + ";";
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
+	public Boolean checkCharacterSpecial(String str) {
+		String specialChars = "!@#$%*'+,¨~\"/:;<=>?[]^_`{|}§";
+		for (int i = 0; i < str.length(); i++) {
+			String strChar = Character.toString(str.charAt(i));
+			if (specialChars.contains(strChar)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

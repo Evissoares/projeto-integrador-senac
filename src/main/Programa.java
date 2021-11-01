@@ -120,29 +120,30 @@ public class Programa {
 		String contato = "";
 		String email = "";
 		String telefone = "";
-		System.out.println("Digite o codigo do fornecedor:");
+		System.out.println("Digite o codigo do fornecedor (Apenas Números):");
 		codFornecedor = teclado.nextLine();
-		System.out.println("Digite o nome fantasia do fornecedor:");
+		System.out.println("Digite o nome fantasia do fornecedor (Não colocar caracteres especiais):");
 		nomefantasia = teclado.nextLine();
-		System.out.println("Digite oa razão social do fornecedor:");
+		System.out.println("Digite oa razão social do fornecedor (Não colocar caracteres especiais):");
 		razaosocial = teclado.nextLine();
-		System.out.println("Digite o cnpj do fornecedor:");
+		System.out.println("Digite o cnpj do fornecedor (No formato: 99.999.999/9999-99):");
 		cnpj = teclado.nextLine();
-		System.out.println("Digite o segmento do fornecedor:");
+		System.out.println("Digite o segmento do fornecedor (Não colocar caracteres especiais):");
 		segmento = teclado.nextLine();
-		System.out.println("Digite a data do cadastro do fornecedor:");
+		System.out.println("Digite a data do cadastro do fornecedor (No formato: 99/99/99 ou 99/99/9999):");
 		dataCadastro = teclado.nextLine();
-		System.out.println("Digite o contato do fornecedor:");
+		System.out.println("Digite o contato do fornecedor (Não colocar caracteres especiais):");
 		contato = teclado.nextLine();
-		System.out.println("Digite o telefone do fornecedor:");
+		System.out.println("Digite o telefone do fornecedor (No formato: (99) 9999-9999 ou (99) 99999-9999):");
 		telefone = teclado.nextLine();
-		System.out.println("Digite o e-mail do fornecedor:");
+		System.out.println("Digite o e-mail do fornecedor( formato de e-mail válido):");
 		email = teclado.nextLine();
 		FornecedorService f= new FornecedorService();
 		try {
 			f.salvarFornecedor(nomefantasia, razaosocial, cnpj, codFornecedor, segmento, dataCadastro, contato, email, telefone);
 		} catch (Exception $e) {
 			System.out.println("\n*****************\nCadastro com Erro\n*****************");
+			System.out.println("\n*****************\nRefaça o cadastro\n*****************");
 			System.out.println($e.getMessage());
 		}
 	}
@@ -183,17 +184,17 @@ public class Programa {
 		String cpf = "";
 		String anoAdmissao = "";
 		String disciplina = "";
-		System.out.println("Digite o codigo do professor:");
+		System.out.println("Digite o codigo do professor (Apenas números):");
 		codProfessor = teclado.nextLine();
-		System.out.println("Digite o nome do professor:");
+		System.out.println("Digite o nome do professor (Não colocar caracteres especiais):");
 		nome = teclado.nextLine();
-		System.out.println("Digite o sobrenome do professor:");
+		System.out.println("Digite o sobrenome do professor (Não colocar caracteres especiais):");
 		sobrenome = teclado.nextLine();
-		System.out.println("Digite o cpf do professor:");
+		System.out.println("Digite o cpf do professor (exemplo: 999.999.999-99):");
 		cpf = teclado.nextLine();
-		System.out.println("Digite a disciplina do professor:");
+		System.out.println("Digite a disciplina do professor (Não colocar caracteres especiais):");
 		disciplina = teclado.nextLine();
-		System.out.println("Digite o ano de admissao:");
+		System.out.println("Digite o ano de admissao (Apenas números com 4 posições):");
 		anoAdmissao = teclado.nextLine();
 		if (!anoAdmissao.matches("[0-9.]+")) {
 			anoAdmissao = "0";
@@ -203,6 +204,7 @@ public class Programa {
 			p.salvarProfessor(codProfessor, nome, cpf, sobrenome, disciplina, Integer.parseInt(anoAdmissao));
 		} catch (Exception $e) {
 			System.out.println("\n*****************\nCadastro com Erro\n*****************");
+			System.out.println("\n*****************\nRefaça o cadastro\n*****************");
 			System.out.println($e.getMessage());
 		}
 	}
@@ -246,17 +248,17 @@ public class Programa {
 		String cpf = "";
 		String anoDoIngresso = "";
 		String turma = "";
-		System.out.println("Digite a matrícula do aluno:");
+		System.out.println("Digite a matrícula do aluno (Apenas números):");
 		matricula = teclado.nextLine();
-		System.out.println("Digite o nome do aluno:");
+		System.out.println("Digite o nome do aluno (Não colocar caracteres especiais):");
 		nome = teclado.nextLine();
-		System.out.println("Digite o sobrenome do aluno:");
+		System.out.println("Digite o sobrenome do aluno (Não colocar caracteres especiais):");
 		sobrenome = teclado.nextLine();
-		System.out.println("Digite o cpf do aluno:");
+		System.out.println("Digite o cpf do aluno (No formato: 999.999.999-99):");
 		cpf = teclado.nextLine();
-		System.out.println("Digite a turma do aluno:");
+		System.out.println("Digite a turma do aluno (Apenas números):");
 		turma = teclado.nextLine();
-		System.out.println("Digite o ano do ingresso:");
+		System.out.println("Digite o ano do ingresso (Apenas números com 4 posições):");
 		anoDoIngresso = teclado.nextLine();
 		if (!anoDoIngresso.matches("[0-9.]+")) {
 			anoDoIngresso = "0";
@@ -266,6 +268,7 @@ public class Programa {
 			a.salvarAluno(nome,cpf,sobrenome,matricula,turma,Integer.parseInt(anoDoIngresso));
 		} catch (Exception $e) {
 			System.out.println("\n*****************\nCadastro com Erro\n*****************");
+			System.out.println("\n*****************\nRefaça o cadastro\n*****************");
 			System.out.println($e.getMessage());
 		}
 	}

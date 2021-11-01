@@ -9,12 +9,12 @@ public class Professor extends Fisica{
 	public Professor() { /* construtor */}
 	
 	public Professor(String codProfessor, String nome, String cpf, String sobrenome, String disciplina, Integer anoAdmissao) {
-		super.setNome(nome);
-		super.setCpf(cpf);
-		super.setSobrenome(sobrenome);
 		this.setCodProfessor(codProfessor);
-		this.setAnoAdmissao(anoAdmissao);
+		super.setNome(nome);
+		super.setSobrenome(sobrenome);
+		super.setCpf(cpf);
 		this.setDisciplina(disciplina);
+		this.setAnoAdmissao(anoAdmissao);
 	}
 
 	public String getCodProfessor() {
@@ -36,6 +36,8 @@ public class Professor extends Fisica{
 	public void setDisciplina(String disciplina) {
 		if (disciplina.trim().isEmpty()) {
 			throw new IllegalArgumentException("A disciplina do professor deve ser preenchida.");
+		} if ( super.checkCharacterSpecial(disciplina.trim())) {
+			throw new IllegalArgumentException("A disciplina do professor não deve conter caracteres especiais.");
 		}
 		this.disciplina = disciplina.trim();
 	}

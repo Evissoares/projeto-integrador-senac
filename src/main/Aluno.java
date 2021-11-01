@@ -9,10 +9,10 @@ public class Aluno extends Fisica{
 	public Aluno() { /* construtor */ }
 	
 	public Aluno(String nome, String cpf, String sobrenome, String matricula, String turma, Integer anodeingresso) {
-		super.setNome(nome);
-		super.setCpf(cpf);
-		super.setSobrenome(sobrenome);
 		this.setMatricula(matricula);
+		super.setNome(nome);
+		super.setSobrenome(sobrenome);
+		super.setCpf(cpf);
 		this.setTurma(turma);
 		this.setAnoIngresso(anodeingresso);
 	}
@@ -35,6 +35,8 @@ public class Aluno extends Fisica{
 	public void setTurma(String turma) {
 		if (turma.trim().isEmpty()) {
 			throw new IllegalArgumentException("A turma deve ser preenchida.");
+		} else if ( super.checkCharacterSpecial(turma.trim())) {
+			throw new IllegalArgumentException("A turma não deve conter caracteres especiais.");
 		}
 		this.turma = turma.trim();
 	}
