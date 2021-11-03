@@ -1,6 +1,5 @@
 package main;
 
-import java.lang.invoke.StringConcatException;
 import java.text.SimpleDateFormat;
 
 public class Fornecedor extends Juridica{
